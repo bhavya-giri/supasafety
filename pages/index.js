@@ -1,6 +1,7 @@
+import LoadingScreen from "../components/LoadingScreen";
 
 export default function Home() {
   return (
-   <div></div>
+   <div><LoadingScreen/></div>
   )
 }
