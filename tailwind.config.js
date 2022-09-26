@@ -5,9 +5,7 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    colors: {
-      'red-applemusic':'#FC3C44',
-    },
+    
     extend: {
       
     },
