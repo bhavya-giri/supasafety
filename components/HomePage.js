@@ -4,11 +4,12 @@ import location from '../public/Location.png'
 import alarm from '../public/Notification-on.png'
 import phone from '../public/Phone-in.png'
 import audio from '../public/Microphone.png'
+import Navbar from './Navbar'
 const HomePage = () => {
     const [currentLocation, setCurrentLocaton] =  useState('Connaught Place')
   return (
-    <div className='max-h-screen'>
-        <div className='flex w-3/4 mt-8 ml-4 gap-1'>
+    <div className='h-screen bg-gray-100'>
+        <div className='flex w-3/4 pt-8 ml-4 gap-1'>
             <Image src={location} alt="" width={40} height={40}/>
             <p className='text-3xl text-gray-500 '>{currentLocation}</p>
         </div>
@@ -31,6 +32,7 @@ const HomePage = () => {
            </div>
            
         </div>
+        <Navbar/>
     </div>
   )
 }
