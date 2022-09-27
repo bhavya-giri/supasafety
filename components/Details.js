@@ -1,17 +1,17 @@
 import React, { useState } from 'react'
+import { render } from 'react-dom'
 import EmergencyContact from './EmergencyContact'
 
 const Details = () => {
-  const [numEmergency, setNumEmergency] =useState([{contact:''}])
+  const [numEmergency, setNumEmergency] =useState(1)
   const handleAdd =()=>{
-    setNumEmergency([...numEmergency, { contact: "" }]);
+    setNumEmergency(prev => prev+1);
   }
-  const renders = numEmergency.map((num,index)=>{
-    return(
-      <EmergencyContact key={index}/>
-    )
-  })
-  return (
+
+ let render = []
+ for(let el=0; el<numEmergency; el++ )
+ render.push(<EmergencyContact/>) 
+return (
     <div>
         <h1 className='text-3xl text-red-500'>Welcome to SupaSafety</h1>
     
@@ -83,7 +83,7 @@ const Details = () => {
           
 <div className='mt-6'>
 <h2>Add your emergengy contact</h2>
-{renders}
+{render}
 </div>
           <div class="mt-4">
           <button
