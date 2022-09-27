@@ -1,40 +1,44 @@
-import React, { useState } from 'react'
-import Image from 'next/image'
-import location from '../public/Location.png'
-import alarm from '../public/Notification-on.png'
-import phone from '../public/Phone-in.png'
-import audio from '../public/Microphone.png'
-import Navbar from './Navbar'
+import React, { useState } from "react";
+import Navbar from "./Navbar";
+import { MdOutlineLocationOn } from "react-icons/md";
+import {
+  BsFillTelephoneInboundFill,
+  BsFillBellFill,
+  BsFillMicFill,
+} from "react-icons/bs";
 const HomePage = () => {
-    const [currentLocation, setCurrentLocaton] =  useState('Connaught Place')
+  const [currentLocation, setCurrentLocaton] = useState("Connaught Place");
   return (
-    <div className='h-screen bg-gray-100'>
-        <div className='flex w-3/4 pt-8 ml-4 gap-1'>
-            <Image src={location} alt="" width={40} height={40}/>
-            <p className='text-3xl text-gray-500 '>{currentLocation}</p>
+    <div className="flex flex-col h-screen bg-gray-200">
+      <div className="flex w-3/4 pt-8 ml-4 gap-1">
+        <MdOutlineLocationOn className="lg:md:text-4xl  text-3xl lg:md:mt-0 mt-0.5 text-gray-500" />
+        <p className="lg:md:text-3xl text-xl font-black text-gray-500 hover:underline underline-offset-4">
+          {currentLocation}
+        </p>
+      </div>
+      <div className="mx-auto mt-24">
+        <div className="flex">
+          <div className="cursor-pointer border bg-[#b59e0e] hover:bg-[#b59e0e]/80 w-44 h-44 flex items-center justify-center rounded-tl-full">
+            <BsFillTelephoneInboundFill className="lg:md:text-4xl text-3xl lg:md:mt-6 text-gray-100 ml-8" />
+          </div>
+          <div className="cursor-pointer border bg-[#a157f9] hover:bg-[#a157f9]/80 w-44 h-44 flex items-center justify-center rounded-tr-full">
+            <BsFillBellFill className="lg:md:text-4xl  text-3xl lg:md:mt-6 text-gray-100 mr-4" />
+          </div>
         </div>
-        <div className='flex flex-col h-2/3 justify-center items-center'>
-            <div className='flex gap-1'>
-            <div className= 'quartertl flex justify-center items-center'>
-                <Image src={phone} height={60} width={60} alt=''  />
-            </div>
-            <div className= 'quartertr flex justify-center items-center'>
-            <Image src={alarm} height={60} width={60} alt=''  />
-            </div>
-            </div>
-           <div className='flex gap-1 mt-1'>
-           <div className= 'quarterbl flex justify-center items-center'>
-           <Image src={audio} height={60} width={60} alt=''  />
-           </div>
-            <div className= 'quarterbr flex justify-center items-center'>
-                <p className='text-4xl font-bold text-white'>SOS</p>
-            </div>
-           </div>
-           
+        <div className="flex">
+          <div className="cursor-pointer border bg-[#53b175] hover:bg-[#53b175]/80 w-44 h-44 flex items-center justify-center rounded-bl-full">
+            <BsFillMicFill className="lg:md:text-4xl  text-3xl lg:md:mt-0 text-gray-100 ml-8" />
+          </div>
+          <div className="cursor-pointer border bg-[#f94c57] hover:bg-[#f94c57]/80 w-44 h-44 flex items-center justify-center rounded-br-full">
+            <span className="lg:md:text-4xl  text-3xl lg:md:mt-0 text-gray-100 mr-8">
+              SOS
+            </span>
+          </div>
         </div>
-        <Navbar/>
+      </div>
+      <Navbar />
     </div>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;
