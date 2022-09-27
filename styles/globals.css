@@ -1,3 +1,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.quarterbr{
+    width: 150px;
+    height: 150px;
+    background: #F94C57;
+    border-radius: 0 0 150px 0;
+    -moz-border-radius: 0 0 150px 0;
+    -webkit-border-radius: 0 0 150px 0;
+}
+.quartertl{
+     width: 150px;
+     height: 150px;
+     background: #FCDC14;
+     border-radius: 150px 0 0 0;
+     -moz-border-radius: 150px 0 0 0;
+     -webkit-border-radius: 150px 0 0 0;
+}
+
+.quartertr{
+     width: 150px;
+     height: 150px;
+     background: #A157F9;
+     border-radius: 0 150px 0 0;
+     -moz-border-radius: 0 150px 0 0;
+     -webkit-border-radius: 0 150px 0 0;
+}
+.quarterbl{
+     width: 150px;
+     height: 150px;
+     background: #53B175;
+     border-radius: 0 0 0 150px;
+     -moz-border-radius: 0 0 0 150px;
+     -webkit-border-radius: 0 0 0 150px;
+}
