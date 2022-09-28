@@ -4,7 +4,6 @@ import Signup from "../components/Signup";
 import LoadingScreen from "../components/LoadingScreen";
 import supabase from "../utils/supabase";
 import { useEffect, useState } from "react";
-
 export default function Home() {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);

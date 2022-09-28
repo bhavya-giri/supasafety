@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Navbar from "./Navbar";
 import { MdOutlineLocationOn } from "react-icons/md";
 import {
@@ -6,8 +6,20 @@ import {
   BsFillBellFill,
   BsFillMicFill,
 } from "react-icons/bs";
+import { MapContext } from "../context/mapContext";
 const HomePage = () => {
-  const [currentLocation, setCurrentLocaton] = useState("Connaught Place");
+  const [currentLocation, setCurrentLocaton] = useState(null);
+  const { lat, long } = useContext(MapContext);
+
+  (async () => {
+    let data = await fetch(
+      `http://api.positionstack.com/v1/reverse?access_key=${process.env.NEXT_PUBLIC_REVERSE_MAP_KEY}&query=${lat},${long}`
+    );
+    data = await data.json();
+    data = data.data;
+    setCurrentLocaton(() => data[0].label);
+  })();
+
   return (
     <div className="flex flex-col h-screen bg-gray-200">
       <div className="flex w-3/4 pt-8 ml-4 gap-1">
