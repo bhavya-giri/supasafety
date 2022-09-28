@@ -35,7 +35,11 @@ const UserPage = () => {
   ];
   useEffect(() => {
     const user = supabase.auth.user();
-    setName(user.user_metadata.full_name);
+    try {
+      setName(user.user_metadata.full_name);
+    } catch (error) {
+      setName("User");
+    }
   }, []);
 
   return (
