@@ -30,7 +30,7 @@ import { MapContext } from "../context/mapContext";
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
-export default function map({}) {
+export default function Map({}) {
   const {lat,long} = useContext(MapContext);
   return (
     // Important! Always set the container height explicitly
