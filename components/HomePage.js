@@ -7,25 +7,27 @@ import {
   BsFillMicFill,
 } from "react-icons/bs";
 import { MapContext } from "../context/mapContext";
+import axios from "axios";
 const HomePage = (user) => {
   const [currentLocation, setCurrentLocaton] = useState(null);
   const { lat, long } = useContext(MapContext);
-
-  (async () => {
-    let data = await fetch(
+  axios
+    .get(
       `http://api.positionstack.com/v1/reverse?access_key=${process.env.NEXT_PUBLIC_REVERSE_MAP_KEY}&query=${lat},${long}`
-    );
-    data = await data.json();
-    data = data.data;
-    setCurrentLocaton(data[0].label);
-  })();
+    )
+    .then((res) => {
+      setCurrentLocaton(res.data.data[0].label);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 
   return (
     <div className="flex flex-col h-screen bg-gray-200">
       <div className="flex w-3/4 pt-8 ml-4 gap-1">
         <MdOutlineLocationOn className="lg:md:text-4xl  text-3xl lg:md:mt-0 mt-0.5 text-gray-500" />
         <p className="lg:md:text-3xl text-xl font-black text-gray-500 hover:underline underline-offset-4">
-          {currentLocation}
+          {currentLocation === "Earth" ? "Loading..." : currentLocation}
         </p>
       </div>
       <div className="mx-auto mt-24">
