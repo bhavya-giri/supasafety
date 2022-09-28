@@ -1,24 +1,10 @@
+import Image from "next/image";
 import React, { useState } from "react";
 import { BsGoogle } from "react-icons/bs";
-import { AiOutlineMail } from "react-icons/ai";
 import supabase from "../utils/supabase";
 
 const Signup = () => {
-  const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
-  const handleSignup = async (e) => {
-    setLoading(true);
-    e.preventDefault();
-    const { user, error } = await supabase.auth.signIn({
-      email: email,
-    });
-    if (error) {
-      alert(error.message);
-    } else {
-      alert("Sent! Check your email");
-    }
-    setLoading(false);
-  };
   const handleGoogleSignup = async (e) => {
     e.preventDefault();
     const { error } = await supabase.auth.signIn(
