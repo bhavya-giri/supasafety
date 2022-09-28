@@ -7,7 +7,7 @@ import {
   BsFillMicFill,
 } from "react-icons/bs";
 import { MapContext } from "../context/mapContext";
-const HomePage = () => {
+const HomePage = (user) => {
   const [currentLocation, setCurrentLocaton] = useState(null);
   const { lat, long } = useContext(MapContext);
 
@@ -17,7 +17,7 @@ const HomePage = () => {
     );
     data = await data.json();
     data = data.data;
-    setCurrentLocaton(() => data[0].label);
+    setCurrentLocaton(data[0].label);
   })();
 
   return (

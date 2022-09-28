@@ -10,7 +10,7 @@ const Signup = () => {
     const { error } = await supabase.auth.signIn(
       { provider: "google" },
       {
-        redirectTo: "http://localhost:3001",
+        redirectTo: "http://localhost:3000",
       }
     );
     if (error) {
