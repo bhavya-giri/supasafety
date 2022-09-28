@@ -7,17 +7,20 @@ import {
   BsFillMicFill,
 } from "react-icons/bs";
 import { MapContext } from "../context/mapContext";
+import axios from "axios";
 const HomePage = (user) => {
   const [currentLocation, setCurrentLocaton] = useState(null);
   const { lat, long } = useContext(MapContext);
-
-  (async () => {
-    let data = await fetch(
+  axios
+    .get(
       `http://api.positionstack.com/v1/reverse?access_key=${process.env.NEXT_PUBLIC_REVERSE_MAP_KEY}&query=${lat},${long}`
-    );
-    var json = await data.json();
-    setCurrentLocaton(json.data[0].label);
-  })();
+    )
+    .then((res) => {
+      setCurrentLocaton(res.data.data[0].label);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 
   return (
     <div className="flex flex-col h-screen bg-gray-200">
