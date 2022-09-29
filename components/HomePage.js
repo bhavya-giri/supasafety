@@ -4,7 +4,7 @@ import { MdOutlineLocationOn } from "react-icons/md";
 import {
   BsFillTelephoneInboundFill,
   BsFillBellFill,
-  BsFillMicFill,
+  BsFillCameraVideoFill,
 } from "react-icons/bs";
 const HomePage = () => {
   const [currentLocation, setCurrentLocaton] = useState("Connaught Place");
@@ -43,7 +43,7 @@ const HomePage = () => {
         </div>
         <div className="flex">
           <div className="cursor-pointer border bg-[#53b175] hover:bg-[#53b175]/80 w-44 h-44 flex items-center justify-center rounded-bl-full">
-            <BsFillMicFill className="lg:md:text-4xl  text-3xl lg:md:mt-0 text-gray-100 ml-8" />
+            <BsFillCameraVideoFill className="lg:md:text-4xl  text-3xl lg:md:mt-0 text-gray-100 ml-8" />
           </div>
           <div className="cursor-pointer border bg-[#f94c57] hover:bg-[#f94c57]/80 w-44 h-44 flex items-center justify-center rounded-br-full">
             <span className="lg:md:text-4xl  text-3xl lg:md:mt-0 text-gray-100 mr-8">
