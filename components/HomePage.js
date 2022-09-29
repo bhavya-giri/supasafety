@@ -54,8 +54,8 @@ const HomePage = (user) => {
           </div>
 
 
-          <div className="cursor-pointer border bg-[#a157f9] hover:bg-[#a157f9]/80 w-44 h-44 flex items-center justify-center rounded-tr-full">
-            <BsFillBellFill className="lg:md:text-4xl  text-3xl lg:md:mt-6 text-gray-100 mr-4" />
+          <div onClick={play} className="cursor-pointer border bg-[#a157f9] hover:bg-[#a157f9]/80 w-44 h-44 flex items-center justify-center rounded-tr-full">
+            <BsFillBellFill  className="lg:md:text-4xl  text-3xl lg:md:mt-6 text-gray-100 mr-4" />
               <audio id="a1" src="/sirenSound.mp3"></audio>
           </div>
         </div>
