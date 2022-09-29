@@ -5,10 +5,10 @@ import { AiOutlineUserAdd } from "react-icons/ai";
 import supabase from "../utils/supabase";
 const EmergencyForm1 = ({ number }) => {
   const [name1, setName1] = useState("");
-  const [email1, setEmail1] = useState("");
+  const [phone1, setPhone1] = useState("");
   const [relation1, setRelation1] = useState("");
   const [name2, setName2] = useState("");
-  const [email2, setEmail2] = useState("");
+  const [phone2, setPhone2] = useState("");
   const [relation2, setRelation2] = useState("");
   const [showModal, setShowModal] = useState(false);
 
@@ -20,12 +20,12 @@ const EmergencyForm1 = ({ number }) => {
         emergency: [
           {
             name1: name1,
-            email1: email1,
+            phone1: phone1,
             relation1: relation1,
           },
           {
             name2: name2,
-            email2: email2,
+            phone2: phone2,
             relation2: relation2,
           },
         ],
@@ -48,18 +48,18 @@ const EmergencyForm1 = ({ number }) => {
         alert(error.message);
       } else {
         setName1(data[0].emergency[0].name1);
-        setEmail1(data[0].emergency[0].email1);
+        setPhone1(data[0].emergency[0].phone1);
         setRelation1(data[0].emergency[0].relation1);
         setName2(data[0].emergency[1].name2);
-        setEmail2(data[0].emergency[1].email2);
+        setPhone2(data[0].emergency[1].phone2);
         setRelation2(data[0].emergency[1].relation2);
       }
     } catch {
       setName1("");
-      setEmail1("");
+      setPhone1("");
       setRelation1("");
       setName2("");
-      setEmail2("");
+      setPhone2("");
       setRelation2("");
     }
   };
@@ -93,11 +93,11 @@ const EmergencyForm1 = ({ number }) => {
         <div>
           <div className="relative">
             <input
-              type="email"
+              type="text"
               className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
-              placeholder="Enter email"
-              value={email1}
-              onChange={(e) => setEmail1(e.target.value)}
+              placeholder="Enter phone number"
+              value={phone1}
+              onChange={(e) => setPhone1(e.target.value)}
               required
             />
 
@@ -147,11 +147,11 @@ const EmergencyForm1 = ({ number }) => {
         <div>
           <div className="relative">
             <input
-              type="email"
+              type="text"
               className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
-              placeholder="Enter email"
-              value={email2}
-              onChange={(e) => setEmail2(e.target.value)}
+              placeholder="Enter phone"
+              value={phone2}
+              onChange={(e) => phone2(e.target.value)}
               required
             />
 
