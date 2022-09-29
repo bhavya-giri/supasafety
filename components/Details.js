@@ -1,18 +1,10 @@
-import React, { useState } from 'react'
-import { render } from 'react-dom'
+import React from 'react'
 import EmergencyContact from './EmergencyContact'
 
 const Details = () => {
-  const [numEmergency, setNumEmergency] =useState(1)
-  const handleAdd =()=>{
-    setNumEmergency(prev => prev+1);
-  }
 
- let render = []
- for(let el=0; el<numEmergency; el++ )
- render.push(<EmergencyContact/>) 
 return (
-    <div>
+    <div className='pt-6 text-center'>
         <h1 className='text-3xl text-red-500'>Welcome to SupaSafety</h1>
     
 
@@ -81,18 +73,14 @@ return (
           </div>
 
           
-<div className='mt-6'>
-<h2>Add your emergengy contact</h2>
-{render}
+<div className='mt-6 text-left'>
+<h2>Emergency Contact 1</h2>
+<EmergencyContact/>
+<h2>Emergency Contact 2</h2>
+<EmergencyContact/>
 </div>
           <div className="mt-4">
-          <button
-              onClick={handleAdd}
-              className="inline-flex items-center justify-center w-1/3 px-5 py-3 text-white bg-red-500 mr-24 rounded-3xl sm:w-auto"
-            >
-              
-            +
-            </button>
+         
             <button
               type="submit"
               className="inline-flex items-center justify-center w-1/3 px-5 py-3 text-white bg-black rounded-lg sm:w-auto"

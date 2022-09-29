@@ -8,6 +8,13 @@ import {
 } from "react-icons/bs";
 const HomePage = () => {
   const [currentLocation, setCurrentLocaton] = useState("Connaught Place");
+  
+ 
+  function play() {
+    var audio = document.getElementById('a1');
+    audio.play();
+  }
+
   return (
     <div className="flex flex-col h-screen bg-gray-200">
       <div className="flex w-3/4 pt-8 ml-4 gap-1">
@@ -21,8 +28,9 @@ const HomePage = () => {
           <div className="cursor-pointer border bg-[#b59e0e] hover:bg-[#b59e0e]/80 w-44 h-44 flex items-center justify-center rounded-tl-full">
             <BsFillTelephoneInboundFill className="lg:md:text-4xl text-3xl lg:md:mt-6 text-gray-100 ml-8" />
           </div>
-          <div className="cursor-pointer border bg-[#a157f9] hover:bg-[#a157f9]/80 w-44 h-44 flex items-center justify-center rounded-tr-full">
+          <div onClick={play} className="cursor-pointer border bg-[#a157f9] hover:bg-[#a157f9]/80 w-44 h-44 flex items-center justify-center rounded-tr-full">
             <BsFillBellFill className="lg:md:text-4xl  text-3xl lg:md:mt-6 text-gray-100 mr-4" />
+            <audio id='a1' src='/sirenSound.mp3'></audio>
           </div>
         </div>
         <div className="flex">
@@ -34,6 +42,7 @@ const HomePage = () => {
               SOS
             </span>
           </div>
+         
         </div>
       </div>
       <Navbar />
