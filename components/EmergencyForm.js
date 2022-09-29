@@ -78,6 +78,7 @@ const EmergencyForm1 = ({ number }) => {
               placeholder="Enter the name"
               value={name1}
               onChange={(e) => setName1(e.target.value)}
+              required
             />
 
             <span className="absolute inset-y-0 inline-flex items-center right-4">
@@ -94,6 +95,7 @@ const EmergencyForm1 = ({ number }) => {
               placeholder="Enter email"
               value={email1}
               onChange={(e) => setEmail1(e.target.value)}
+              required
             />
 
             <span className="absolute inset-y-0 inline-flex items-center right-4">
@@ -109,6 +111,7 @@ const EmergencyForm1 = ({ number }) => {
               placeholder="Enter relation"
               value={relation1}
               onChange={(e) => setRelation1(e.target.value)}
+              required
             />
 
             <span className="absolute inset-y-0 inline-flex items-center right-4">
@@ -129,6 +132,7 @@ const EmergencyForm1 = ({ number }) => {
               placeholder="Enter the name"
               value={name2}
               onChange={(e) => setName2(e.target.value)}
+              required
             />
 
             <span className="absolute inset-y-0 inline-flex items-center right-4">
@@ -145,6 +149,7 @@ const EmergencyForm1 = ({ number }) => {
               placeholder="Enter email"
               value={email2}
               onChange={(e) => setEmail2(e.target.value)}
+              required
             />
 
             <span className="absolute inset-y-0 inline-flex items-center right-4">
@@ -160,6 +165,7 @@ const EmergencyForm1 = ({ number }) => {
               placeholder="Enter relation"
               value={relation2}
               onChange={(e) => setRelation2(e.target.value)}
+              required
             />
 
             <span className="absolute inset-y-0 inline-flex items-center right-4">
