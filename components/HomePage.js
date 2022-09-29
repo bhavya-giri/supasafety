@@ -4,13 +4,14 @@ import { MdOutlineLocationOn } from "react-icons/md";
 import {
   BsFillTelephoneInboundFill,
   BsFillBellFill,
-  BsFillMicFill,
+  BsFillCameraVideoFill,
 } from "react-icons/bs";
 import { MapContext } from "../context/mapContext";
 import axios from "axios";
 const HomePage = (user) => {
   const [currentLocation, setCurrentLocaton] = useState(null);
   const { lat, long } = useContext(MapContext);
+  const [sound, setSound] = useState(true);
   axios
     .get(
       `http://api.positionstack.com/v1/reverse?access_key=${process.env.NEXT_PUBLIC_REVERSE_MAP_KEY}&query=${lat},${long}`
@@ -22,6 +23,16 @@ const HomePage = (user) => {
       console.log(err);
     });
 
+  function play() {
+    var audio = document.getElementById("a1");
+    if (sound) {
+      audio.play();
+      setSound(false);
+    } else {
+      audio.pause();
+      setSound(true);
+    }
+  }
     // function handleClick(){
     //   alert("hello")
     // }
@@ -45,11 +56,12 @@ const HomePage = (user) => {
 
           <div className="cursor-pointer border bg-[#a157f9] hover:bg-[#a157f9]/80 w-44 h-44 flex items-center justify-center rounded-tr-full">
             <BsFillBellFill className="lg:md:text-4xl  text-3xl lg:md:mt-6 text-gray-100 mr-4" />
+              <audio id="a1" src="/sirenSound.mp3"></audio>
           </div>
         </div>
         <div className="flex">
           <div className="cursor-pointer border bg-[#53b175] hover:bg-[#53b175]/80 w-44 h-44 flex items-center justify-center rounded-bl-full">
-            <BsFillMicFill className="lg:md:text-4xl  text-3xl lg:md:mt-0 text-gray-100 ml-8" />
+            <BsFillCameraVideoFill className="lg:md:text-4xl  text-3xl lg:md:mt-0 text-gray-100 ml-8" />
           </div>
           <div className="cursor-pointer border bg-[#f94c57] hover:bg-[#f94c57]/80 w-44 h-44 flex items-center justify-center rounded-br-full">
             <span className="lg:md:text-4xl  text-3xl lg:md:mt-0 text-gray-100 mr-8">
