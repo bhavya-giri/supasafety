@@ -6,7 +6,6 @@ import supabase from "../utils/supabase";
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  console.log(getUser());
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
   const [loggedIn, setLoggedIn] = useState(null);
@@ -48,7 +47,7 @@ export default function Home() {
       {loading ? (
         "Loading"
       ) : (
-          <>{loggedIn ? <HomePage user={user} /> : <HomePage user={user} />}</>
+        <>{loggedIn ? <HomePage user={user} /> : <HomePage user={user} />}</>
       )}
     </main>
   );
