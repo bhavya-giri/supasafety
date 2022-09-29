@@ -19,27 +19,57 @@ const HomePage = (user) => {
   const [phoneNumber2, setPhoneNumber2] = useState("");
   const [userName, setUserName] = useState("");
   useEffect(() => {
+    const getUser = async (e) => {
+      try {
+        const { data, error } = await supabase
+
+          .from("emergency_contacts")
+          .select("*")
+          .eq("email", supabase.auth.user().email);
+        if (error) {
+          alert(error.message);
+        } else {
+          setPhoneNumber1(data[0].emergency[0].phone1);
+          setPhoneNumber2(data[0].emergency[1].phone2);
+        }
+      } catch {
+        setPhoneNumber1("");
+        setPhoneNumber2("");
+      }
+    };
+    getUser();
     const user = supabase.auth.user();
     try {
       setUserName(user.user_metadata.full_name);
     } catch (error) {
       setUserName("User");
     }
-    console.log(lat, long);
   }, []);
 
-  const sendSOS = async () => {
+  const sendSOS1 = async () => {
     const res = await fetch("/api/sendMessage", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        to: "+918860534469",
+        to: `+91${phoneNumber1}`,
         body: `It's an emergency for ${userName}. Location is http://maps.google.com/maps?q=${lat},${long}. You are receiving this message because ${userName} has listed you as an emergency contact.`,
       }),
     });
-    console.log(res);
+  };
+
+  const sendSOS2 = async () => {
+    const res = await fetch("/api/sendMessage", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        to: `+91${phoneNumber2}`,
+        body: `It's an emergency for ${userName}. Location is http://maps.google.com/maps?q=${lat},${long}. You are receiving this message because ${userName} has listed you as an emergency contact.`,
+      }),
+    });
   };
 
   axios
@@ -97,7 +127,10 @@ const HomePage = (user) => {
             <BsFillCameraVideoFill className="lg:md:text-4xl  text-3xl lg:md:mt-0 text-gray-100 ml-8" />
           </div>
           <div
-            onClick={sendSOS}
+            onClick={() => {
+              sendSOS1();
+              sendSOS2();
+            }}
             className="cursor-pointer border bg-[#f94c57] hover:bg-[#f94c57]/80 w-44 h-44 flex items-center justify-center rounded-br-full"
           >
             <span className="lg:md:text-4xl  text-3xl lg:md:mt-0 text-gray-100 mr-8">
