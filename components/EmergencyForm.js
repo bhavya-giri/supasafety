@@ -151,7 +151,7 @@ const EmergencyForm1 = ({ number }) => {
               className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
               placeholder="Enter phone"
               value={phone2}
-              onChange={(e) => phone2(e.target.value)}
+              onChange={(e) => setPhone2(e.target.value)}
               required
             />
 
