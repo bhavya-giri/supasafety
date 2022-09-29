@@ -10,6 +10,8 @@ const EmergencyForm1 = ({ number }) => {
   const [name2, setName2] = useState("");
   const [email2, setEmail2] = useState("");
   const [relation2, setRelation2] = useState("");
+  const [showModal, setShowModal] = useState(false);
+
   const handleAdd = async (e) => {
     e.preventDefault();
     const { data, error } = await supabase.from("emergency_contacts").insert([
@@ -33,6 +35,7 @@ const EmergencyForm1 = ({ number }) => {
       alert(error.message);
     } else {
       alert("Emergency Contacts Added!");
+      setShowModal(true);
     }
   };
   const getUser = async (e) => {
@@ -183,6 +186,41 @@ const EmergencyForm1 = ({ number }) => {
           </button>
         </div>
       </form>
+      <>
+        {showModal ? (
+          <>
+            <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+              <div className="relative w-auto my-6 mx-auto max-w-3xl">
+                <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-[#395B64] outline-none focus:outline-none">
+                  <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
+                    <h3 className="text-3xl font-semibold text-[#E8F1F2]">
+                      Configure for WhatsApp
+                    </h3>
+                    <button
+                      className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
+                      onClick={() => setShowModal(false)}
+                    >
+                      <span className="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
+                        ×
+                      </span>
+                    </button>
+                  </div>
+                  <p className="text-white px-2 mt-12 flex flex-col">
+                    Click the following button to verify SupaSafety for WhatsApp
+                    from both the emergency contacts number.
+                    <a href="http://wa.me/+14155238886?text=join%20depend-break">
+                      <button className="my-12 inline-block px-5 py-3 ml-3 text-sm font-medium text-white bg-rose-500 hover:bg-rose-400 active:bg-rose-600 rounded-lg">
+                        VERIFY
+                      </button>
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+          </>
+        ) : null}
+      </>
     </div>
   );
 };

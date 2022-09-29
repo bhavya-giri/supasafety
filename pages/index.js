@@ -47,7 +47,7 @@ export default function Home() {
       {loading ? (
         "Loading"
       ) : (
-        <>{loggedIn ? <HomePage user={user} /> : <HomePage user={user} />}</>
+        <>{loggedIn ? <HomePage user={user} /> : <Signup />}</>
       )}
     </main>
   );

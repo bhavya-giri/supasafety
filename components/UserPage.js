@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
 import Navbar from "./Navbar";
 import { BsChevronRight } from "react-icons/bs";
 import supabase from "../utils/supabase";
 import Link from "next/link";
-
 const UserPage = () => {
   const [name, setName] = useState(null);
   const route = [
