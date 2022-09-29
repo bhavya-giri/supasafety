@@ -4,6 +4,7 @@ import Signup from "../components/Signup";
 import LoadingScreen from "../components/LoadingScreen";
 import supabase from "../utils/supabase";
 import { useEffect, useState } from "react";
+
 export default function Home() {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
@@ -46,7 +47,7 @@ export default function Home() {
       {loading ? (
         "Loading"
       ) : (
-          <>{loggedIn ? <HomePage user={user} /> : <HomePage user={user} />}</>
+        <>{loggedIn ? <HomePage user={user} /> : <HomePage user={user} />}</>
       )}
     </main>
   );
