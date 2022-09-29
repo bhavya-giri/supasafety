@@ -14,7 +14,7 @@ const UserPage = () => {
     },
     {
       name: "Emergency Contacts",
-      link: "/emergency-contacts",
+      link: "/emergency-contact",
     },
     {
       name: "FAQ",
