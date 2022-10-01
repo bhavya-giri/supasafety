@@ -57,6 +57,9 @@ const HomePage = (user) => {
         body: `It's an emergency for ${userName}. Location is http://maps.google.com/maps?q=${lat},${long}. You are receiving this message because ${userName} has listed you as an emergency contact.`,
       }),
     });
+    if (res.status === 200) {
+      alert("Message sent successfully");
+    }
   };
 
   const sendSOS2 = async () => {
@@ -108,7 +111,7 @@ const HomePage = (user) => {
       <div className="mx-auto mt-24">
         <div className="flex">
           <div
-            onClick={() => window.open("tel:900300400")}
+            onClick={() => window.open(`tel:${phoneNumber1}`)}
             className="cursor-pointer border bg-[#b59e0e] hover:bg-[#b59e0e]/80 w-44 h-44 flex items-center justify-center rounded-tl-full"
           >
             <BsFillTelephoneInboundFill className="lg:md:text-4xl text-3xl lg:md:mt-6 text-gray-100 ml-8" />
