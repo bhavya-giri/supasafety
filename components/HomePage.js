@@ -57,6 +57,9 @@ const HomePage = (user) => {
         body: `It's an emergency for ${userName}. Location is http://maps.google.com/maps?q=${lat},${long}. You are receiving this message because ${userName} has listed you as an emergency contact.`,
       }),
     });
+    if (res.status === 200) {
+      alert("Message sent successfully");
+    }
   };
 
   const sendSOS2 = async () => {
