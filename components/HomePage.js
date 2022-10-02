@@ -10,8 +10,6 @@ import { MapContext } from "../context/mapContext";
 import axios from "axios";
 import supabase from "../utils/supabase";
 const HomePage = (user) => {
-  const [number, setNumber] = useState("");
-  const [body, setBody] = useState("");
   const [currentLocation, setCurrentLocaton] = useState(null);
   const { lat, long } = useContext(MapContext);
   const [sound, setSound] = useState(true);
@@ -22,7 +20,6 @@ const HomePage = (user) => {
     const getUser = async (e) => {
       try {
         const { data, error } = await supabase
-
           .from("emergency_contacts")
           .select("*")
           .eq("email", supabase.auth.user().email);
@@ -116,7 +113,6 @@ const HomePage = (user) => {
           >
             <BsFillTelephoneInboundFill className="lg:md:text-4xl text-3xl lg:md:mt-6 text-gray-100 ml-8" />
           </div>
-
           <div
             onClick={play}
             className="cursor-pointer border bg-[#a157f9] hover:bg-[#a157f9]/80 w-44 h-44 flex items-center justify-center rounded-tr-full"
@@ -125,21 +121,17 @@ const HomePage = (user) => {
             <audio id="a1" src="/sirenSound.mp3"></audio>
           </div>
         </div>
-        <div className="flex">
-          <div className="cursor-pointer border bg-[#53b175] hover:bg-[#53b175]/80 w-44 h-44 flex items-center justify-center rounded-bl-full">
-            <BsFillCameraVideoFill className="lg:md:text-4xl  text-3xl lg:md:mt-0 text-gray-100 ml-8" />
-          </div>
-          <div
-            onClick={() => {
-              sendSOS1();
-              sendSOS2();
-            }}
-            className="cursor-pointer border bg-[#f94c57] hover:bg-[#f94c57]/80 w-44 h-44 flex items-center justify-center rounded-br-full"
-          >
-            <span className="lg:md:text-4xl  text-3xl lg:md:mt-0 text-gray-100 mr-8">
-              SOS
-            </span>
-          </div>
+
+        <div
+          onClick={() => {
+            sendSOS1();
+            sendSOS2();
+          }}
+          className="cursor-pointer border bg-[#f94c57] hover:bg-[#f94c57]/80 w-88 h-44 flex items-center justify-center rounded-b-full"
+        >
+          <span className="lg:md:text-4xl text-3xl text-center text-gray-100">
+            SOS
+          </span>
         </div>
       </div>
       <Navbar />

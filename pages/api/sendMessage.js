@@ -6,7 +6,6 @@ const client = require("twilio")(
 export default async (req, res) => {
   res.statusCode = 200;
   res.setHeader("Content-Type", "application/json");
-
   client.messages
     .create({
       body: req.body.body,
