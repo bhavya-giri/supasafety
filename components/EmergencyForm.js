@@ -66,7 +66,7 @@ const EmergencyForm1 = ({ number }) => {
 
   useEffect(() => {
     getUser();
-  }, []);
+  }, );
   return (
     <div className="bg-gray-200 mx-2 py-12 rounded-md">
       <h1 className="text-center font-black">
